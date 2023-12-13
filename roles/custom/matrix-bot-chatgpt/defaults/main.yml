@@ -5,7 +5,7 @@
 matrix_bot_chatgpt_enabled: true
 
 # renovate: datasource=docker depName=ghcr.io/matrixgpt/matrix-chatgpt-bot
-matrix_bot_chatgpt_version: 3.1.2
+matrix_bot_chatgpt_version: 3.1.4
 
 matrix_bot_chatgpt_container_image_self_build: false
 matrix_bot_chatgpt_container_image_self_build_repo: "https://github.com/matrixgpt/matrix-chatgpt-bot"
@@ -21,6 +21,10 @@ matrix_bot_chatgpt_base_path: "{{ matrix_base_data_path }}/chatgpt"
 matrix_bot_chatgpt_config_path: "{{ matrix_bot_chatgpt_base_path }}/config"
 matrix_bot_chatgpt_data_path: "{{ matrix_bot_chatgpt_base_path }}/data"
 matrix_bot_chatgpt_container_src_path: "{{ matrix_bot_chatgpt_base_path }}/container-src"
+
+# Controls how long to wait for the container to stop gracefully before killing it.
+# We use a small value here, because this container does not seem to handle the SIGTERM signal.
+matrix_bot_chatgpt_container_stop_grace_time_seconds: 1
 
 # A list of extra arguments to pass to the container
 matrix_bot_chatgpt_container_extra_arguments: []
