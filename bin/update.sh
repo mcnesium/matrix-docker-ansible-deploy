@@ -14,7 +14,7 @@
 set -e
 
 # set playbook root path
-root=$(dirname "$(readlink -f "$0")")/../..
+root=$(dirname "$(readlink -f "$0")")/..
 
 # capture passwords for all hosts
 for host in "$root"/inventory/*.yml; do
